@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:text="あなたの読んだ本を登録しましょう！"
         android:textColor="#000000"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
