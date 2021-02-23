@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View.INVISIBLE
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -24,12 +26,23 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent,9)
         }
 
-
-        bookShelfView.layoutManager = LinearLayoutManager(this)
+        bookShelfView.layoutManager = GridLayoutManager(this,3)
+        // bookShelfView.layoutManager = LinearLayoutManager(this)
         bookShelfView.adapter = adapter
 
         adapter.addAll(bookList)
 
+        if(bookList.size > 0){
+            textView.visibility = INVISIBLE
+        }
+
+        cheatButton.setOnClickListener {
+            val newbook = Book("hogehoge","Hoge Hoges",1200,"none",0,"")
+            bookList.add(newbook)
+            adapter.clear()
+            adapter.addAll(bookList)
+            adapter.notifyDataSetChanged()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -42,6 +55,9 @@ class MainActivity : AppCompatActivity() {
         adapter.clear()
         adapter.addAll(bookList)
         adapter.notifyDataSetChanged()
-    }
 
+        if(bookList.size > 0){
+            textView.visibility = INVISIBLE
+        }
+    }
 }

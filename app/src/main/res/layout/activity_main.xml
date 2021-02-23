@@ -58,4 +58,12 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_book_shelf" />
 
+    <Button
+        android:id="@+id/cheatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="@+id/bookShelfView"
+        app:layout_constraintTop_toTopOf="@+id/bookShelfView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

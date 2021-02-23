@@ -23,9 +23,7 @@ class BookShelfAdapter(private val context: Context):RecyclerView.Adapter<BookSh
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return items.size
-    }
+    override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
@@ -33,7 +31,7 @@ class BookShelfAdapter(private val context: Context):RecyclerView.Adapter<BookSh
         holder.bookImageView.setImageResource(R.drawable.book_nomal)
         holder.titleTextView.text = item.title
         holder.authorTextView.text = item.author
-        holder.timelogTextView.text = item.time_update.toString()
+        holder.timelogTextView.text = item.time_update.toString() + "分前"
     }
 
     fun addAll(items: List<Book>){

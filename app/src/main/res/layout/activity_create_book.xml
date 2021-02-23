@@ -37,7 +37,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/create_TitileEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textShortMessage" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -53,7 +54,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/create_AuthorEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,7 +73,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/create_PriceEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
