@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this@MainActivity,ShowDetailActivity::class.java)
                     intent.putExtra("position",position)
                     Log.d("クリックしたよおおおお！！", "position = " + position)
-                    startActivity(intent)
+                    startActivityForResult(intent,9999)
                 }
             }
         )
@@ -60,16 +61,17 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         // 新規作成画面から戻ってきたとき
-        if(requestCode != 9 || data == null){
-            return
+        if(requestCode == 9 && data != null){
+            Log.d("addBook", bookList.size.toString())
+            adapter.clear()
+            adapter.addAll(bookList)
+            adapter.notifyDataSetChanged()
+        }else if(resultCode == 9999){
+            Log.d("addBook", bookList.size.toString())
+            adapter.clear()
+            adapter.addAll(bookList)
+            adapter.notifyDataSetChanged()
         }
-        Log.d("addBook", bookList.size.toString())
-        adapter.clear()
-        adapter.addAll(bookList)
-        adapter.notifyDataSetChanged()
-
-        if(bookList.size > 0){
-            textView.visibility = INVISIBLE
-        }
+        textView.visibility = if(bookList.size > 0) INVISIBLE else VISIBLE
     }
 }
