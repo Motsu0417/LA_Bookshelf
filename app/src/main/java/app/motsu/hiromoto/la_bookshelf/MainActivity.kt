@@ -42,7 +42,19 @@ class MainActivity : AppCompatActivity() {
             adapter.clear()
             adapter.addAll(bookList)
             adapter.notifyDataSetChanged()
+            textView.visibility = INVISIBLE
         }
+
+        adapter.setOnBookItemClickListener(
+            object : BookShelfAdapter.OnBookItemClickListener{
+                override fun onItemClick(position:Int){
+                    val intent = Intent(this@MainActivity,ShowDetailActivity::class.java)
+                    intent.putExtra("position",position)
+                    Log.d("クリックしたよおおおお！！", "position = " + position)
+                    startActivity(intent)
+                }
+            }
+        )
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

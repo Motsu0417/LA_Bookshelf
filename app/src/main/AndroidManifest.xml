@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LA_Bookshelf">
-        <activity android:name=".CreateBookActivity"></activity>
+        <activity android:name=".ChangeDetailActivity"></activity>
+        <activity android:name=".ShowDetailActivity" />
+        <activity android:name=".CreateBookActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,9 +1,11 @@
 package app.motsu.hiromoto.la_bookshelf
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +16,17 @@ class BookShelfAdapter(private val context: Context):RecyclerView.Adapter<BookSh
         val titleTextView: TextView = view.findViewById(R.id.item_BookTitle)
         val authorTextView: TextView = view.findViewById(R.id.item_Author)
         val timelogTextView:TextView = view.findViewById(R.id.item_TimeLog)
+    }
+
+    // アイテムのクリックリスナー
+    lateinit var listener: OnBookItemClickListener
+
+    interface OnBookItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnBookItemClickListener(listener:OnBookItemClickListener){
+        this.listener = listener
     }
 
     val items: MutableList<Book> = mutableListOf()
@@ -32,6 +45,10 @@ class BookShelfAdapter(private val context: Context):RecyclerView.Adapter<BookSh
         holder.titleTextView.text = item.title
         holder.authorTextView.text = item.author
         holder.timelogTextView.text = item.time_update.toString() + "分前"
+
+        holder.itemView.setOnClickListener{
+            listener.onItemClick(position)
+        }
     }
 
     fun addAll(items: List<Book>){

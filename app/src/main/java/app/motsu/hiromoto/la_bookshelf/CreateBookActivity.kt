@@ -8,10 +8,10 @@ import kotlinx.android.synthetic.main.activity_create_book.*
 
 class CreateBookActivity : AppCompatActivity() {
 
-    var title = ""
-    var author = ""
-    var price = 0
-    var content = ""
+    private var title = ""
+    private var author = ""
+    private var price = 0
+    private var content = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
