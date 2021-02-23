@@ -37,5 +37,10 @@ class CreateBookActivity : AppCompatActivity() {
             setResult(RESULT_OK,intent)
             finish()
         }
+
+        create_backButton.setOnClickListener{
+            finish()
+
+        }
     }
 }

@@ -7,6 +7,21 @@
     android:layout_margin="20sp"
     tools:context=".CreateBookActivity">
 
+    <Button
+        android:id="@+id/create_backButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="45sp"
+        android:layout_height="45sp"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        app:icon="@drawable/ic_baseline_arrow_back_24"
+        app:iconPadding="0dp"
+        app:iconTint="#605E5E"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="200sp"
