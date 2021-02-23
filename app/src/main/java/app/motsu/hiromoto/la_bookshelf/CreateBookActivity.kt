@@ -21,13 +21,9 @@ class CreateBookActivity : AppCompatActivity() {
             author = create_AuthorEditText.text.toString()
             price = Integer.parseInt(create_PriceEditText.text.toString())
             content = create_ContextEditText.text.toString()
-
-            val intent = Intent(this,MainActivity::class.java)
-            intent.putExtra("title",title)
-            intent.putExtra("autor",author)
-            intent.putExtra("price",price)
-            intent.putExtra("context",content)
-            setResult(9,intent)
+            val newbook = Book(title,author,price,content,0,"")
+            MainActivity.bookList.add(newbook)
+            setResult(RESULT_OK,intent)
             finish()
         }
     }
